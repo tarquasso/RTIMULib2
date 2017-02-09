@@ -119,7 +119,7 @@ void RTPressureMS5837::pressureBackground()
         //  call this function for testing only
         //  should give T = 2000 (20.00C) and pressure 39982 (3999.8hPa)
 
-        // setTestData();
+        setTestData();
 
         //  now calculate the real values
 
