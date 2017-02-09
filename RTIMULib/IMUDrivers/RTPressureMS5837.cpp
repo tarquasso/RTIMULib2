@@ -129,7 +129,7 @@ void RTPressureMS5837::pressureBackground()
 
         int64_t offset = (((int64_t)m_calData[1]) << 16) + ((m_calData[3] * deltaT) >> 7);
         int64_t sens = (((int64_t)m_calData[0]) << 15) + ((m_calData[2] * deltaT) >> 8);
-        //int64_t p = (RTFLOAT)(((((int64_t)m_D1 * sens) >> 21) - offset) >> 13) / (RTFLOAT)10.0; //mbar
+        //RTFLOAT p = (RTFLOAT)(((((int64_t)m_D1 * sens) >> 21) - offset) >> 13) / (RTFLOAT)10.0; //mbar
 
         //  do second order temperature compensation
         int64_t Ti;
@@ -151,8 +151,8 @@ void RTPressureMS5837::pressureBackground()
         offset2 = offset - offseti;
         sens2 = sens - sensi;
 
-        int64_t temp2 = (temperature - Ti)/(RTFLOAT)100.0; //celsius
-        int64_t p2 = (RTFLOAT)(((((int64_t)m_D1 * sens2) >> 21) - offset2) >> 13) / (RTFLOAT)10.0; //mbar
+        RTFLOAT temp2 = (temperature - Ti)/(RTFLOAT)100.0; //celsius
+        RTFLOAT p2 = (RTFLOAT)(((((int64_t)m_D1 * sens2) >> 21) - offset2) >> 13) / (RTFLOAT)10.0; //mbar
 
         m_temperature = temp2; //celsius
         m_pressure = p2; //mbar
