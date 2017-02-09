@@ -38,14 +38,15 @@ bool RTPressureMS5837::pressureInit()
     unsigned char data[2];
 
     m_pressureAddr = m_settings->m_I2CPressureAddress;
+    printf("I2CPressureAddress: %d\n", m_pressureAddr);
 
     // get calibration data
 
     for (int i = 0; i < 6; i++) {
-        if (!m_settings->HALRead(m_pressureAddr, cmd, 2, data, "Failed to read MS5611 calibration data"))
+        if (!m_settings->HALRead(m_pressureAddr, cmd, 2, data, "Failed to read MS5837 calibration data"))
             return false;
         m_calData[i] = (((uint16_t)data[0]) << 8) | ((uint16_t)data[1]);
-        // printf("Cal index: %d, data: %d\n", i, m_calData[i]);
+        printf("Cal index: %d, data: %d\n", i, m_calData[i]);
         cmd += 2;
     }
 

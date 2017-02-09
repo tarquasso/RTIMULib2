@@ -3,7 +3,6 @@ Makefile*
 *.opensdf
 *.pro.user
 *.cache
-Makefile*
 !Linux/RTIMULibDrive/Makefile
 !Linux/RTIMULibDrive10/Makefile
 !Linux/RTIMULibDrive11/Makefile
@@ -51,3 +50,5 @@ GeneratedFiles/
 *.pro.user*
 .DS_store
 octave-core
+/cmake-build-debug/
+/.idea/
