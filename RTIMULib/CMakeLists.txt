@@ -68,6 +68,7 @@ SET(LIBRTIMU_SRCS
     IMUDrivers/RTPressureLPS25H.cpp
     IMUDrivers/RTPressureMS5611.cpp
     IMUDrivers/RTPressureMS5637.cpp
+    IMUDrivers/RTPressureMS5837.cpp
     IMUDrivers/RTHumidity.cpp
     IMUDrivers/RTHumidityHTS221.cpp
     IMUDrivers/RTHumidityHTU21D.cpp

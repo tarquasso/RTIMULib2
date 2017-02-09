@@ -415,18 +415,18 @@ bool RTIMUSettings::discoverPressure(int& pressureType, unsigned char& pressureA
             }
         }
 
-        // check for MS5611 (which unfortunately has no ID reg)
+        // check for MS5611/MS5637/MS5837 (which unfortunately has no ID reg)
 
         if (HALRead(MS5611_ADDRESS0, 0, 1, &result, "")) {
             pressureType = RTPRESSURE_TYPE_MS5611;
             pressureAddress = MS5611_ADDRESS0;
-            HAL_INFO("Detected MS5611 at standard address\n");
+            HAL_INFO("Detected MS5611/MS5637/MS5837 at standard address\n");
             return true;
         }
         if (HALRead(MS5611_ADDRESS1, 0, 1, &result, "")) {
             pressureType = RTPRESSURE_TYPE_MS5611;
             pressureAddress = MS5611_ADDRESS1;
-            HAL_INFO("Detected MS5611 at option address\n");
+            HAL_INFO("Detected MS5611/MS5637/MS5837 at option address\n");
             return true;
         }
     }
@@ -987,6 +987,7 @@ bool RTIMUSettings::saveSettings()
     setComment("  3 = LPS25H");
     setComment("  4 = MS5611");
     setComment("  5 = MS5637");
+    setComment("  6 = MS5837");
 
     setValue(RTIMULIB_PRESSURE_TYPE, m_pressureType);
 

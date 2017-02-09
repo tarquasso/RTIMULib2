@@ -233,6 +233,9 @@
     <ClCompile Include="..\..\RTIMULib\IMUDrivers\RTPressureMS5637.cpp">
       <Filter>RTIMULib\IMUDrivers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\RTIMULib\IMUDrivers\RTPressureMS5837.cpp">
+      <Filter>RTIMULib\IMUDrivers</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\RTIMULib\IMUDrivers\RTIMULSM9DS1.cpp">
       <Filter>RTIMULib\IMUDrivers</Filter>
     </ClCompile>
@@ -385,6 +388,9 @@
       <Filter>RTIMULib\IMUDrivers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\RTIMULib\IMUDrivers\RTPressureMS5637.h">
+      <Filter>RTIMULib\IMUDrivers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RTIMULib\IMUDrivers\RTPressureMS5837.h">
       <Filter>RTIMULib\IMUDrivers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\RTIMULib\IMUDrivers\RTIMULSM9DS1.h">

@@ -51,6 +51,7 @@ Pressure/temperature sensing works with the following pressure sensors:
 * LPS25H
 * MS5611
 * MS5637
+* MS5837
 
 Humidity/temperature sensing is supported for the following humidity sensors:
 

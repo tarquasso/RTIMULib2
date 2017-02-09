@@ -32,6 +32,7 @@
 #define RTPRESSURE_TYPE_LPS25H              3                   // LPS25H
 #define RTPRESSURE_TYPE_MS5611              4                   // MS5611
 #define RTPRESSURE_TYPE_MS5637              5                   // MS5637
+#define RTPRESSURE_TYPE_MS5837              6                   // MS5637
 
 //----------------------------------------------------------
 //
@@ -87,19 +88,24 @@
 
 //----------------------------------------------------------
 //
-//  MS5611 and MS5637
+//  MS5611 and MS5637 and MS5837
 
 //  MS5611 I2C Slave Addresses
 
-#define MS5611_ADDRESS0             0x76
+#define MS5611_ADDRESS0             0x76 // 1110110x (write: x=0, read: x=1).
 #define MS5611_ADDRESS1             0x77
 
 //	commands
 
 #define MS5611_CMD_RESET            0x1e
-#define MS5611_CMD_CONV_D1          0x48
-#define MS5611_CMD_CONV_D2          0x58
-#define MS5611_CMD_PROM             0xa0
-#define MS5611_CMD_ADC              0x00
+#define MS5611_CMD_CONV_D1          0x48 //Convert D1 (OSR=4096)
+#define MS5611_CMD_CONV_D2          0x58 //Convert D2 (OSR=4096)
+#define MS5611_CMD_PROM             0xa0 //PROM Read
+#define MS5611_CMD_ADC              0x00 //ADC Read
 
+#define MS5837_CMD_RESET            MS5611_CMD_RESET
+#define MS5837_CMD_CONV_D1          MS5611_CMD_CONV_D1 //Convert D1 (OSR=4096)
+#define MS5837_CMD_CONV_D2          MS5611_CMD_CONV_D2 //Convert D2 (OSR=4096)
+#define MS5837_CMD_PROM             MS5611_CMD_PROM //PROM Read
+#define MS5837_CMD_ADC              MS5611_CMD_ADC //ADC Read
 #endif // _RTPRESSUREDEFS_H
