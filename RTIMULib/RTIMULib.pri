@@ -39,6 +39,7 @@ HEADERS += $$PWD/RTIMULib.h \
     $$PWD/IMUDrivers/RTIMUDefs.h \
     $$PWD/IMUDrivers/RTIMUMPU9150.h \
     $$PWD/IMUDrivers/RTIMUMPU9250.h \
+    $$PWD/IMUDrivers/RTIMUMPU9255.h \
     $$PWD/IMUDrivers/RTIMUGD20HM303D.h \
     $$PWD/IMUDrivers/RTIMUGD20M303DLHC.h \
     $$PWD/IMUDrivers/RTIMUGD20HM303DLHC.h \
@@ -69,6 +70,7 @@ SOURCES += $$PWD/RTMath.cpp \
     $$PWD/IMUDrivers/RTIMU.cpp \
     $$PWD/IMUDrivers/RTIMUMPU9150.cpp \
     $$PWD/IMUDrivers/RTIMUMPU9250.cpp \
+    $$PWD/IMUDrivers/RTIMUMPU9255.cpp \
     $$PWD/IMUDrivers/RTIMUGD20HM303D.cpp \
     $$PWD/IMUDrivers/RTIMUGD20M303DLHC.cpp \
     $$PWD/IMUDrivers/RTIMUGD20HM303DLHC.cpp \

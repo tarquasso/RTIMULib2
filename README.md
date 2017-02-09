@@ -35,6 +35,7 @@ RTIMULib works with the following IMUs:
 * InvenSense MPU-6050 plus HMC5883 magnetometer on MPU-6050's aux bus (handled by the MPU-9150 driver).
 * InvenSense MPU-6050 gyros + acclerometers. Treated as MPU-9150 without magnetometers.
 * InvenSense MPU-9250 single chip IMU (I2C and SPI).
+* InvenSense MPU-9255 single chip IMU (I2C and SPI).
 * STM LSM9DS0 single chip IMU.
 * STM LSM9DS1 single chip IMU.
 * L3GD20H + LSM303D (optionally with the LPS25H) as used on the Pololu AltIMU-10 v4.
@@ -67,7 +68,7 @@ RTIMULib also supports multiple sensor integration fusion filters such as RTQF a
 
 Two types of platforms are supported:
 
-* Embedded Linux. RTIMULib works with the Raspberry Pi (Raspbian). Demo apps for these can be found in the Linux directory and instructions for building and running can be found there. Its prerequisites are very simple - just I2C support on the target system along with the standard build-essential (included in the Raspberry Pi Raspbian distribution by default).
+* Embedded Linux. RTIMULib is supported for the BeagleBone (debian), Raspberry Pi (Raspbian), and Intel Edison. Demo apps for these can be found in the Linux directory and instructions for building and running can be found there. Its prerequisites are very simple - just I2C support on the target system along with the standard build-essential (included in the Raspberry Pi Raspbian distribution by default).
 
 * Desktop (Ubuntu/Windows/Mac). There are two apps (RTHostIMU and RTHostIMUGL) that allow the sensor fusion to be separated from the sensor interfacing and data collection. An Arduino (running the RTArduLinkIMU sketch from the RTIMULib-Arduino repo) fitted with an IMU chip collects the sensor data and sends it to the desktop. RTHostIMU and RTHostIMUGL (this one has an OpenGL visualization of the data) communicate with the Arduino via a USB connection.
 
@@ -83,7 +84,7 @@ This is the actual RTIMULib library source. Custom apps only need to include thi
 
 ### Linux
 
-This directory contains the embedded Linux demo apps (for Raspberry Pi and Intel Edison) and also the Python interface to RTIMULib.
+This directory contains the embedded Linux demo apps (for BeagleBone/Raspberry Pi and Intel Edison) and also the Python interface to RTIMULib.  See Linux/README.md (https://github.com/VCTLabs/RTIMULib2/blob/master/Linux/README.md) for build and setup details.
 
 ### RTHost
 
