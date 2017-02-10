@@ -34,35 +34,42 @@
 
 class RTIMUSettings;
 
-class RTPressureMS5837 : public RTPressure
-{
+class RTPressureMS5837 : public RTPressure {
 public:
-    RTPressureMS5837(RTIMUSettings *settings);
-    ~RTPressureMS5837();
+  RTPressureMS5837(RTIMUSettings *settings);
 
-    virtual const char *pressureName() { return "MS5837"; }
-    virtual int pressureType() { return RTPRESSURE_TYPE_MS5611; }
-    virtual bool pressureInit();
-    virtual bool pressureRead(RTIMU_DATA& data);
+  ~RTPressureMS5837();
+
+  virtual const char *pressureName() { return "MS5837"; }
+
+  virtual int pressureType() { return RTPRESSURE_TYPE_MS5837; }
+
+  virtual bool pressureInit();
+
+  virtual bool pressureRead(RTIMU_DATA &data);
 
 private:
-    void pressureBackground();
-    void setTestData();
+  void pressureBackground();
 
-    unsigned char m_pressureAddr;                           // I2C address
-    RTFLOAT m_pressure;                                     // the current pressure
-    RTFLOAT m_temperature;                                  // the current temperature
+  void setTestData();
 
-    int m_state;
+  uint8_t crc4(uint16_t n_prom[]);
 
-    uint16_t m_calData[6];                                  // calibration data
+  unsigned char m_pressureAddr;                           // I2C address
+  RTFLOAT m_pressure;                                     // the current pressure
+  RTFLOAT m_temperature;                                  // the current temperature
 
-    uint32_t m_D1;
-    uint32_t m_D2;
+  int m_state;
 
-    uint64_t m_timer;                                       // used to time coversions
+  uint16_t m_calData[6];                                  // calibration data
 
-    bool m_validReadings;
+  uint32_t m_D1;
+  uint32_t m_D2;
+
+  uint64_t m_timer;                                       // used to time coversions
+
+  bool m_validReadings;
+
 };
 
 #endif // _RTPRESSUREMS5837_H_

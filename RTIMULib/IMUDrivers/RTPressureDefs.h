@@ -97,10 +97,10 @@
 
 //	commands
 
-#define MS5611_CMD_RESET            0x1e
+#define MS5611_CMD_RESET            0x1E
 #define MS5611_CMD_CONV_D1          0x48 //Convert D1 (OSR=4096)
 #define MS5611_CMD_CONV_D2          0x58 //Convert D2 (OSR=4096)
-#define MS5611_CMD_PROM             0xa0 //PROM Read
+#define MS5611_CMD_PROM             0xA0 //PROM Read
 #define MS5611_CMD_ADC              0x00 //ADC Read
 
 #define MS5837_CMD_RESET            MS5611_CMD_RESET
