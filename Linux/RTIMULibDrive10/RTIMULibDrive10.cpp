@@ -37,7 +37,8 @@ int main()
     RTIMUSettings *settings = new RTIMUSettings("RTIMULib");
 
     RTIMU *imu = RTIMU::createIMU(settings);
-    RTPressure *pressure = RTPressure::createPressure(settings);
+    RTIMUSettings *settingsPressure = new RTIMUSettings("RTIMULibPressure");
+    RTPressure *pressure = RTPressure::createPressure(settingsPressure);
 
     if ((imu == NULL) || (imu->IMUType() == RTIMU_TYPE_NULL)) {
         printf("No IMU found\n");
