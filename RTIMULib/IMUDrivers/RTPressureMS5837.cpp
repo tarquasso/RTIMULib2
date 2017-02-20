@@ -58,7 +58,7 @@ bool RTPressureMS5837::pressureInit() {
 
   if (crcCalculated != crcRead) {
     // Failure based on CRC - try again?
-    printf("ERROR: crcCalculation failed!\n");
+    printf("ERROR: crcCalculation failed, crcRead: %d and crcCalculated: %d!\n",crcRead,crcRead,crcCalculated);
   }
 
   printf("Calibration Variables:\n");
@@ -201,11 +201,11 @@ uint8_t RTPressureMS5837::crc4(uint16_t n_prom[]) {
   n_prom[0] = ((n_prom[0]) & 0x0FFF);
   n_prom[7] = 0;
 
-  for (uint8_t i = 0; i < 16; i++) {
-    if (i % 2 == 1) {
-      n_rem ^= (uint16_t) ((n_prom[i >> 1]) & 0x00FF0);
+  for (uint8_t cnt = 0; cnt < 16; cnt++) {
+    if (cnt % 2 == 1) {
+      n_rem ^= (uint16_t) ((n_prom[cnt >> 1]) & 0x00FF);
     } else {
-      n_rem ^= (uint16_t) (n_prom[i >> 1] >> 8);
+      n_rem ^= (uint16_t) (n_prom[cnt >> 1] >> 8);
     }
     for (uint8_t n_bit = 8; n_bit > 0; n_bit--) {
       if (n_rem & 0x8000) {
@@ -218,5 +218,5 @@ uint8_t RTPressureMS5837::crc4(uint16_t n_prom[]) {
 
   n_rem = ((n_rem >> 12) & 0x000F);
 
-  return n_rem ^ 0x00;
+  return (n_rem ^ 0x00);
 }
