@@ -45,7 +45,7 @@ bool RTPressureMS5837::pressureInit() {
   // get calibration data
   unsigned char cmd;
 
-  for (int i = 0; i < 8; i++) {
+  for (int i = 0; i < 7; i++) {
     cmd = MS5837_CMD_PROM + i * 2;
     if (!m_settings->HALRead(m_pressureAddr, cmd, 2, data, "Failed to read MS5837 calibration data"))
       return false;
@@ -61,9 +61,10 @@ bool RTPressureMS5837::pressureInit() {
     printf("ERROR: crcCalculation failed!\n");
   }
 
+  printf("Calibration Variables:\n");
   for (int i = 0; i < 6; i++) {
     m_calData[i] = recv[i + 1];
-    printf("Cal index: %d, data: %d\n", i, m_calData[i]);
+    printf("C%d = %d\n", i+1, m_calData[i]);
   }
 
   m_state = MS5837_STATE_IDLE;
