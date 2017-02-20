@@ -71,6 +71,10 @@ public:
 
     static RTFLOAT convertPressureToHeight(RTFLOAT pressure, RTFLOAT staticPressure = 1013.25);
 
+    //  Takes a pressure in hPa=mBar and returns depth below water surface level in meters, assuming sea water
+
+    static RTFLOAT convertPressureToDepth(RTFLOAT pressure, RTFLOAT staticPressure = 1013.25, RTFLOAT waterDensity = 0.9945);
+
 private:
     static char m_string[1000];                             // for the display routines
 };
