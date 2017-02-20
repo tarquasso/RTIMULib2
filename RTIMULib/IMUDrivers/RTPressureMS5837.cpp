@@ -58,7 +58,7 @@ bool RTPressureMS5837::pressureInit() {
 
   if (crcCalculated != crcRead) {
     // Failure based on CRC - try again?
-    printf("ERROR: crcCalculation failed, crcRead: %d and crcCalculated: %d!\n",crcRead,crcRead,crcCalculated);
+    printf("ERROR: crcCalculation failed, crcRead: %d and crcCalculated: %d!\n",crcRead,crcCalculated);
   }
 
   printf("Calibration Variables:\n");
