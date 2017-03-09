@@ -476,3 +476,21 @@ bool RTIMU::IMUGyroBiasValid()
      m_imuData.timestamp = timestamp;
      updateFusion();
 }
+
+
+/** map yaw angle to the global coordinate
+ * input : -180~180 degree
+ * output: -infinity ~ infinity */
+float RTIMU::mapYawToGlobalCoordinate(float cur_local_yaw, float previous_global_yaw)
+{
+    // map current yaw to the range 0~360
+    if(cur_local_yaw < 0) cur_local_yaw += 360.0;
+
+    // update yaw axis respected to the global coordinate
+    float delta_yaw = cur_local_yaw-(previous_global_yaw - int(previous_global_yaw/(360))*360);
+
+    if(delta_yaw >  180) delta_yaw = delta_yaw - 360;
+    if(delta_yaw < -180) delta_yaw = 360 + delta_yaw;
+
+    return (previous_global_yaw+delta_yaw);
+}

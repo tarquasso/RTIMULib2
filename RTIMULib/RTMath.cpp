@@ -98,7 +98,7 @@ RTFLOAT RTMath::convertPressureToHeight(RTFLOAT pressure, RTFLOAT staticPressure
 //  convertPressureToDepth()
 //  the conversion to depth underwater (meters) given static pressure outside water and water density
 RTFLOAT RTMath::convertPressureToDepth(RTFLOAT pressure, RTFLOAT staticPressure, RTFLOAT waterDensity) {
-    return depth = -(pressure - staticPressure) * waterDensity / 100.0;
+    return (-(pressure - staticPressure) * waterDensity / 100.0);
 }
 
 RTVector3 RTMath::poseFromAccelMag(const RTVector3& accel, const RTVector3& mag)

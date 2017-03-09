@@ -160,6 +160,11 @@ public:
 
     RTVector3 getAccelResiduals() { return m_fusion->getAccelResiduals(); }
 
+    /** map yaw angle to the global coordinate
+    * input : -180~180 degree
+    * output: -infinity ~ infinity */
+    float mapYawToGlobalCoordinate(float cur_local_yaw, float previous_global_yaw);
+
 protected:
     void gyroBiasInit();                                    // sets up gyro bias calculation
     void handleGyroBias();                                  // adjust gyro for bias
