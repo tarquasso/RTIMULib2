@@ -212,6 +212,15 @@ bool RTIMUMPU9250::IMUInit()
     if (!m_settings->HALOpen())
         return false;
 
+    // Read the WHO_AM_I register, this is a good test of communication
+    if (!m_settings->HALRead(m_slaveAddr, MPU9250_WHO_AM_I, 1, &result, "Failed to read MPU9250 id"))
+        return false;
+
+    if (result != MPU9250_ID) {
+        HAL_ERROR2("Incorrect %s, I am id: %d, I should be id: %d\n", IMUName(), result, MPU9250_ID);
+        return false;
+    }
+
     //  reset the MPU9250
 
     if (!m_settings->HALWrite(m_slaveAddr, MPU9250_PWR_MGMT_1, 0x80, "Failed to initiate MPU9250 reset"))
@@ -222,13 +231,6 @@ bool RTIMUMPU9250::IMUInit()
     if (!m_settings->HALWrite(m_slaveAddr, MPU9250_PWR_MGMT_1, 0x00, "Failed to stop MPU9250 reset"))
         return false;
 
-    if (!m_settings->HALRead(m_slaveAddr, MPU9250_WHO_AM_I, 1, &result, "Failed to read MPU9250 id"))
-        return false;
-
-    if (result != MPU9250_ID) {
-        HAL_ERROR2("Incorrect %s id %d\n", IMUName(), result);
-        return false;
-    }
 
     //  now configure the various components
 
