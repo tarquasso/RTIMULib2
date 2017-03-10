@@ -92,7 +92,7 @@ int main()
                 printf("Sample rate %d: %s\n", sampleRate, RTMath::displayDegrees("", imuData.fusionPose));
 
                 if (pressure != NULL) {
-                    printf("Pressure: %4.1f, height above sea level: %4.1f, pressure sensor temperature: %4.1f\n",
+                    printf("Pressure: %4.1f, height below sea level: %2.6f, pressure sensor temperature: %4.1f\n",
                            imuData.pressure, RTMath::convertPressureToDepth(imuData.pressure), imuData.temperature);
                 }
 
