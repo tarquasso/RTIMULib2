@@ -217,7 +217,7 @@ bool RTIMUMPU9250::IMUInit()
         return false;
 
     if (result != MPU9250_ID) {
-        HAL_ERROR2("Incorrect %s, I am id: %d, I should be id: %d\n", IMUName(), result, MPU9250_ID);
+        HAL_ERROR2("Incorrect %s, I am id: %d\n", IMUName(), result);
         return false;
     }
 
